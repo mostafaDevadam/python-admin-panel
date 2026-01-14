@@ -1,0 +1,5 @@
+.venv/
+/upload/
+/alembic/
+alembic.ini
+test_main.http

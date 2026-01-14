@@ -1,0 +1,44 @@
+
+
+#
+#fastapi
+#unvicorn[standard]
+#python-socketio[asyncio]
+cryptography
+
+# pydantic
+pydantic
+pydantic-settings
+email-validator
+
+# orm
+sqlalchemy>=2.0.0
+mysqlclient
+alembic
+
+#
+aiomysql
+# auth
+python-jose[cryptografy]
+passlib[bcrypt]
+bcrypt==4.0.1
+
+# multipart / forms
+python-multipart
+
+# Async support
+anyio
+
+# utilities
+python-dotenv
+orjson
+
+# pagination/filtering
+fastapi-pagination
+
+# background tasks/caching
+redis
+celery
+
+# audit logging / Middleware helpers
+#startlette
