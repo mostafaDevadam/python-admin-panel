@@ -1,0 +1,78 @@
+{
+    "login": {
+        "title": "Admin Login",
+        "login": "Login",
+        "email": "Email",
+        "password": "Password",
+        "loginButton": "Login"
+    },
+    "register": {
+        "title": "Admin Register",
+        "register": "Register",
+        "email": "Email",
+        "password": "Password",
+        "registerButton": "Register"
+    },
+    "users": {
+        "title": "Users",
+        "search": "Search users",
+        "create": "Create User",
+        "id": "ID",
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "actions": "Actions",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "actions": {
+        "read": "Read",
+        "create": "Create",
+        "update": "Update",
+        "delete": "Delete"
+    },
+    "permissions": {
+        "title": "Permissions",
+        "search": "Search permissions",
+        "create": "Create Permission",
+        "id": "ID",
+        "name": "Name",
+        "actions": "Actions",
+        "update": "Update",
+        "delete": "Delete"
+    },
+    "roles": {
+        "title": "Roles",
+        "search": "Search roles",
+        "create_role": "Create Role",
+        "id": "ID",
+        "name": "Name",
+        "actions": "Actions",
+        "read": "Read",
+        "create": "Create",
+        "update": "Update",
+        "delete": "Delete"
+    },
+    "audit_logs": {
+        "title": "Audit Logs",
+        "search": "Search audit logs",
+        "id": "ID",
+        "user": "User",
+        "action": "Action",
+        "ip": "IP",
+        "ip_address": "IP Address",
+        "created_at": "Created At"
+    },
+    "photos": {
+        "title": "Photos",
+        "search": "Search photos",
+        "create_photo": "Create Photo",
+        "id": "ID",
+        "name": "Name",
+        "read": "Read",
+        "create": "Create",
+        "update": "Update",
+        "delete": "Delete",
+        "created_at": "Created At"
+    }
+}

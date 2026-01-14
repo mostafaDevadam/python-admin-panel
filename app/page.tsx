@@ -1,65 +1,66 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import { getToken } from "../lib/token";
+import { UsersApi } from "./api/users.api";
+import { RolesApi } from "./api/roles.api";
+import { PermissionsApi } from "./api/permissions.api";
+import { AuditLogsApi } from "./api/auditlogs.api";
 
-export default function Home() {
+export default async function Home() {
+   const token = await getToken('access_token')
+   if(!token){
+        redirect('/login')
+   }
+
+   const count_users = await UsersApi.getUsersCount()
+   console.log("count_users:", count_users)
+   const count_roles = await RolesApi.getRolesCount()
+   console.log("count_roles:", count_roles)
+   const count_permissions = await PermissionsApi.getPermissionsCount()
+   console.log("count_permissions:", count_permissions)
+   const count_logs = await AuditLogsApi.getAuditLogsCount()
+   console.log("count_logs:", count_logs)
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex min-h-screen bg-zinc-50 font-sans dark:bg-black ">
+      <div className="flex flex-col gap-5">
+
+
+        <div className="flex justify-between gap-5">
+          <div className="border rounded-lg bg-gray-200 px-2 py-2 h-32 w-60 flex flex-col justify-center items-center">
+            <h1 className="text-center">Total Users</h1>
+            <span className="bg-blue-500 rounded-lg px-4 py-1 w-20 text-center text-white mt-1">{count_users ? count_users.count: 100}</span>
+          </div>
+          <div className="border rounded-lg bg-gray-200 px-2 py-2 h-32 w-60 flex flex-col justify-center items-center">
+            <h1 className="text-center">Total Roles</h1>
+            <span className="bg-blue-500 rounded-lg px-4 py-1 w-20 text-center text-white mt-1">{count_roles ? count_roles.count: 100}</span>
+          </div>
+          <div className="border rounded-lg bg-gray-200 px-2 py-2 h-32 w-60 flex flex-col justify-center items-center">
+            <h1 className="text-center">Total Permissions</h1>
+            <span className="bg-blue-500 rounded-lg px-4 py-1 w-20 text-center text-white mt-1">{count_permissions ? count_permissions.count: 100}</span>
+          </div>
+          <div className="border rounded-lg bg-gray-200 px-2 py-2 h-32 w-60 flex flex-col justify-center items-center">
+            <h1 className="text-center">Audit Logs</h1>
+            <span className="bg-blue-500 rounded-lg px-4 py-1 w-20 text-center text-white mt-1">{count_logs ? count_logs.count: 100}</span>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="flex gap-5 w-full">
+          <div className="border rounded-lg bg-gray-200 h-60  w-3/5">
+            <div className="bg-gray-400 h-10 w-full flex justify-start items-center px-2 rounded-t-lg">
+              <h1 className="text-start">Recent Activities</h1>
+            </div>
+
+          </div>
+          <div className="border rounded-lg bg-gray-200 h-60 w-2/5">
+            <div className="bg-gray-400 h-10 w-full flex justify-start items-center px-2 rounded-t-lg">
+              <h1 className="text-start">Quik Links</h1>
+            </div>
+
+          </div>
         </div>
-      </main>
+
+      </div>
+
     </div>
   );
 }
