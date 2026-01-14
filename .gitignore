@@ -3,3 +3,5 @@
 /alembic/
 alembic.ini
 test_main.http
+.idea
+.env
