@@ -5,3 +5,4 @@ alembic.ini
 test_main.http
 .idea
 .env
+./app/crud/
