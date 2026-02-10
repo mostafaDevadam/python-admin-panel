@@ -2,9 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 #
 branches:
 #
-main: Frontend using Next.js
-#
-backend: Python(FastAPI)
+main: Frontend using Next.js.
+backend: Python(FastAPI).
 
 
 ## Getting Started
